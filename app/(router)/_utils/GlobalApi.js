@@ -195,3 +195,50 @@ export const markChapterAsComplete = async (userEnrollId, chapterId) => {
 
   return await request({ url, document });
 }
+
+export const getUserEnrolledCourses = async (email) => {
+  const document = gql`query GetUserCourseEnrollment {
+    userEnrollCourses(where: {userEmail:"`+ email + `"}) {
+      id
+      userEmail
+      createdAt
+      completedChapter{
+          ... on CompletedChapter{
+            id
+            chapterId
+          }
+        }
+      course {
+        chapter {
+          ... on Chapters {
+            id
+            name
+            shortDesc
+            stage
+            youtubeUrl
+            video {
+              id
+              url
+            }
+            chapterNumber
+          }
+        }
+        createdAt
+        demoUrl
+        description
+        free
+        banner {
+          id
+          url
+        }
+        slug
+        sourceCode
+        tag
+        totalChapters
+        updatedAt
+      }
+    }
+  }`;
+
+  return await request({ url, document });
+}

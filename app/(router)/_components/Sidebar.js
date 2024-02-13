@@ -5,7 +5,7 @@ import { BookOpen, BadgeIcon, GraduationCap, LayoutGrid, Mail } from "lucide-rea
 import { useUser } from "@clerk/nextjs";
 
 const Sidebar = () => {
-  const { user, isLoaded } = useUser()
+  const { user } = useUser()
 
   const menu = [
     {
@@ -28,7 +28,7 @@ const Sidebar = () => {
       id: 2,
       name: "Membership",
       icon: BadgeIcon,
-      path: '/membership',
+      path: '/courses',
       auth: true
     },
 
@@ -36,7 +36,7 @@ const Sidebar = () => {
       id: 3,
       name: "Be Instructor",
       icon: GraduationCap,
-      path: '/instructor',
+      path: '/courses',
       auth: true
     },
 
@@ -44,7 +44,7 @@ const Sidebar = () => {
       id: 4,
       name: "News Letter",
       icon: Mail,
-      path: "/newsletter",
+      path: '/courses',
       auth: true
     },
   ];
