@@ -49,7 +49,6 @@ const Sidebar = () => {
     },
   ];
 
-  console.log(window.location.href, ">>>>>>")
   return (
     <div className='p-5 bg-white shadow-sm border h-screen'>
       <Image src='/logo.svg' alt='LogoIpsum' width={170} height={80} />
